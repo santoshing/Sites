@@ -3,7 +3,6 @@
 <body>
     <div class="container">
         <?php require_once('header.php') ?>
-    
         <?php 
             require_once('posts.php');
             require_once('app-download.php');   
@@ -12,11 +11,6 @@
             require_once('our-company.php');  
             require_once('news.php');
             require_once('footer.php'); 
-            
-            
-            
-            
-
             // require_once('form.php');
            // require_once('test.php');
         ?>

@@ -5,7 +5,7 @@ session_start();
 define("BASE_URL","http://php-learning.test/");
 
 error_reporting(E_ALL);
-$db = new mysqli('localhost', 'root', 'Admin1234', 'thetolet');
+$db = new mysqli('localhost', 'root', 'Admin1234', 'practice_thetolet');
 $db->set_charset('utf8');
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
@@ -70,5 +70,3 @@ function stringcutter($data){
     }
     return substr($data,0,$limit)."...";
 }
-
-
