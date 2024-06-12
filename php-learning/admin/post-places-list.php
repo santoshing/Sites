@@ -25,7 +25,7 @@ require_once('../function.php'); require_once('../head.php');
 
     ?>
 
-    <t>
+    <tr>
       <th scope="row"><?php echo $place['id'] ?></th>
       <td><?php echo $place['name'] ?></td>
       <td><?php echo $place['comment'] ?></td>

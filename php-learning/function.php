@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 define("BASE_URL","http://php-learning.test/");
 
@@ -58,3 +59,16 @@ $news = array(
 
 
 );
+
+
+function stringcutter($data){
+    //cut first 50 charecter 
+
+    $limit = 30;
+    if(strlen($data)<$limit){
+        return $data;
+    }
+    return substr($data,0,$limit)."...";
+}
+
+

@@ -19,6 +19,8 @@ if($insert_query==true){
     echo "not inserted";
 }
 
+header("location: post-add-list.php");
+
 
 
 

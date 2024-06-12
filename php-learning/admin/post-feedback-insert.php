@@ -13,5 +13,6 @@ require_once('../function.php');
  }else{
      echo "not inserted";
  }
+ header("location: post-feedback-list.php");
 
 ?>
