@@ -13,6 +13,11 @@
         header("location: admin-login.php");
     }
 
+   $admin_email =$_SESSION['admin_email'];
+    $admin_data= $db->query("SELECT * FROM `admin` where email = '$admin_email'");
+    $admin = $admin_data->fetch_assoc();
+    var_dump($admin);
+
 
 ?>
 

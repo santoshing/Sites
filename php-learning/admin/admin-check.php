@@ -10,6 +10,8 @@ if(isset($_POST['submit'])){
      $posts_query = $db->query("SELECT * FROM `admin` where email = '$email' and password = '$password'");
      if($posts_query->num_rows > 0){
         $_SESSION['admin'] = true;
+
+        $_SESSION['admin_email'] = $email;
         header("location: index.php");
      }
      else{
