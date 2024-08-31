@@ -1,15 +1,21 @@
 <?php 
 require_once('library/function.php');
 require_once('template/head.php');
+
+
+
+
+
 ?>
 
-<h2 class="text-center">Login</h2>
+
+<h2 class="text-center">Reset password</h2>
 
 <sectio class="w-100 p-4 d-flex justify-content-center pb-4">
 
 
 
-    <form action="<?php echo VALIDATION_URL?>login-action.php" method="post">
+    <form action="<?php echo VALIDATION_URL?>resetpassword-action.php" method="post">
         <div class="form-group mt-4">
 
 
@@ -23,8 +29,12 @@ require_once('template/head.php');
         </div>
 
         <div class="form-group mt-4">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1"> New Password</label>
             <input type="password" class="form-control " placeholder="Password" name="password">
+        </div>
+        <div class="form-group mt-4">
+            <label for="exampleInputPassword1">Confirm New Password</label>
+            <input type="password" class="form-control " placeholder="Password" name="confirm-password">
         </div>
 
         <button type="submit" class="btn btn-primary mt-4" name="submit">Submit</button>
