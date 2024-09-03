@@ -53,11 +53,12 @@ require_once('template/head.php');
         <div data-mdb-input-init class=" form-outline mb-4">
             <input type="text" class="form-control" name="message_name" />
             <label class="form-label" ">Title</label>
-    </div>
+        </div>
+
+              
 
 
-
-    <div data-mdb-input-init class=" form-outline mb-4">
+        <div data-mdb-input-init class=" form-outline mb-4">
                 <textarea name="message" class="form-control" id="form4Example3" rows="4"></textarea>
                 <label class="form-label" for="form4Example3">Message</label>
         </div>
