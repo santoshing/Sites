@@ -5,17 +5,42 @@ require_once('template/head.php');
 
 <section class="row d-flex">
 
+
     <section class="col-md-4">
         <h1 class="text-center">
             Category list
-
         </h1>
+
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Category Name </th>
+                    <th>Action</th>
+
+                </tr>
+                <?php 
+        $query = "SELECT * FROM category";
+        $result = mysqli_query($db, $query);
+        $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach ($categories as $category) : ?>
+
+
+                <tr>
+                    <th scope="row"><?= $category['id'] ?></th>
+                    <td><?= $category['name'] ?></td>
+                    <td>
+                        <a href="category-edit.php?id=<?= $category['id'] ?>" class="btn btn-primary">Edit</a>
+                        <a href="category-delete.php?id=<?= $category['id'] ?>" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                <?php endforeach ?>
+            </thead>
+        </table>
+
     </section>
-    <section class="col-md-4">
 
-
-
-    </section>
 
 
     <section class="col-md-4">
@@ -24,7 +49,10 @@ require_once('template/head.php');
             echo $_SESSION['error'];
             unset($_SESSION['error']);
         }
+
+       
          ?>
+
 
 
         <form action="<?php echo VALIDATION_URL?>category-action.php" method="post">

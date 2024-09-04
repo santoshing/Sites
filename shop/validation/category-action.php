@@ -1,6 +1,7 @@
 <?php
 require_once('../library/function.php');
-
+ 
+ 
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $query = "SELECT * FROM category WHERE name = '$name'";
@@ -20,6 +21,20 @@ if (isset($_POST['submit'])) {
         }
     }
      header('location: '.BASE_URL.'category.php');
+     
+}
+
+
+
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $query = "UPDATE category SET name = '$name' WHERE id = $id";
+    $result = mysqli_query($db, $query);
+    if ($result) {
+        echo "success";
+    }
+    header('location: '.BASE_URL.'category.php');
 }
 
 

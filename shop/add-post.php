@@ -23,6 +23,7 @@ require_once('template/head.php');
                 <th scope="col">ID</th>
                 <th scope="col">Title </th>
                 <th scope="col">message</th>
+                <th scope="col">category </th>
                 <th scope="col ">Action</th>
             </tr>
             <?php foreach ($posts as $post) : ?>
@@ -30,6 +31,19 @@ require_once('template/head.php');
                 <th scope="row"><?= $post['id'] ?></th>
                 <td><?= $post['message_name'] ?></td>
                 <td><?= $post['message'] ?></td>
+                <td>
+
+                    <?php 
+                        $query = "SELECT * FROM category WHERE id = {$post['category_id']}";
+                        $result = mysqli_query($db, $query);
+                        $num_row = mysqli_num_rows($result);
+                        if($num_row > 0){
+                            $category = mysqli_fetch_assoc($result);
+                            echo $category['name'];
+                        }
+                
+                    ?>
+                </td>
                 <td>
                     <a href="add-post-edit.php?id=<?= $post['id'] ?>" class="btn btn-primary">Edit</a>
                     <a href="add-post-delete.php?id=<?= $post['id'] ?>" class="btn btn-danger">Delete</a>
@@ -50,17 +64,41 @@ require_once('template/head.php');
     <h2>Add Post</h2>
     <form action=" <?php echo VALIDATION_URL ?>add-post-action.php" method="post" style=" width: 26rem; ">
 
-        <div data-mdb-input-init class=" form-outline mb-4">
-            <input type="text" class="form-control" name="message_name" />
+        <div data-mdb-input-init class=" form-outline mb-4 p-2">
+            <input type="text" class="form-control" name="message_name" required="required" />
             <label class="form-label" ">Title</label>
         </div>
 
-              
+
+        <div class=" form-outline mb-4 p-2">
+                <h2>select category</h2>
+                <select class=" form-select" aria-label="Default select example" required="required" name="category_id"
+                    required="required">
+                    <option value="">Select category</option>
 
 
-        <div data-mdb-input-init class=" form-outline mb-4">
-                <textarea name="message" class="form-control" id="form4Example3" rows="4"></textarea>
-                <label class="form-label" for="form4Example3">Message</label>
+
+                    <?php 
+                $query = "SELECT * FROM category";
+                $result = mysqli_query($db, $query);
+                $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach ($categories as $category) : ?>
+
+                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                    <?php endforeach ?>
+
+
+
+                </select>
+        </div>
+
+
+
+
+
+        <div data-mdb-input-init class="p-2 form-outline mb-4">
+            <textarea name="message" class="form-control" id="form4Example3" rows="4" required="required"></textarea>
+            <label class="form-label" for="form4Example3">Message</label>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mb-4" name="submit">Submit</button>

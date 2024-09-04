@@ -29,12 +29,28 @@ require_once('template/head.php');
                     <label class="form-label">message</label>
             </div>
 
-            <input type="hidden" name="id" value="<?= $post['id'] ?>">
-            <button type="submit" name="update" class="btn btn-primary">Submit</button>
+            <div data-mdb-input-init class=" form-outline mb-4">
+                <?php
+              $query = "SELECT * FROM category";
+              $result = mysqli_query($db, $query);
+              $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+              ?>
+                <select class="form-select" name="category_id" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <?php foreach ($categories as $category) : ?>
+                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+
+            <div class="mt-4">
+                <input type="hidden" name="id" value="<?= $post['id'] ?>">
+                <button type="submit" name="update" class="btn btn-primary">Submit</button>
+            </div>
 
         </form>
-
-
-
+    </section>
+    <section>
 
     </section>
+</section>
