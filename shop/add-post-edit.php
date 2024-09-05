@@ -43,6 +43,24 @@ require_once('template/head.php');
                 </select>
             </div>
 
+            <div data-mdb-input-init class=" form-outline mb-4">
+                <?php
+              $query = "SELECT * FROM location";
+              $result = mysqli_query($db, $query);
+              $locations = mysqli_fetch_all($result, MYSQLI_ASSOC);
+              ?>
+                <select class="form-select" name="location_id" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <?php foreach ($locations as $location) : ?>
+                    <option value="<?= $location['id'] ?>"><?= $location['name'] ?></option>
+                    <?php endforeach ?>
+                </select>
+
+            </div>
+
+
+
+
             <div class="mt-4">
                 <input type="hidden" name="id" value="<?= $post['id'] ?>">
                 <button type="submit" name="update" class="btn btn-primary">Submit</button>

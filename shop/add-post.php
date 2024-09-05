@@ -24,6 +24,7 @@ require_once('template/head.php');
                 <th scope="col">Title </th>
                 <th scope="col">message</th>
                 <th scope="col">category </th>
+                <th scope="col">Location</th>
                 <th scope="col ">Action</th>
             </tr>
             <?php foreach ($posts as $post) : ?>
@@ -44,6 +45,33 @@ require_once('template/head.php');
                 
                     ?>
                 </td>
+
+
+                <td>
+
+                    <?php 
+
+                    
+                    $query = "SELECT * FROM location WHERE id = {$post['location_id']}";
+                    $result = mysqli_query($db, $query);
+                    $num_row = mysqli_num_rows($result);
+                    if($num_row > 0){
+                        $location = mysqli_fetch_assoc($result);
+                        echo $location['name'];
+                    }
+
+                    ?>
+
+
+
+
+                </td>
+
+
+
+
+
+
                 <td>
                     <a href="add-post-edit.php?id=<?= $post['id'] ?>" class="btn btn-primary">Edit</a>
                     <a href="add-post-delete.php?id=<?= $post['id'] ?>" class="btn btn-danger">Delete</a>
@@ -72,16 +100,13 @@ require_once('template/head.php');
 
         <div class=" form-outline mb-4 p-2">
                 <h2>select category</h2>
-                <select class=" form-select" aria-label="Default select example" required="required" name="category_id"
-                    required="required">
+                <select class=" form-select" required="required" name="category_id" required="required">
                     <option value="">Select category</option>
 
-
-
                     <?php 
-                $query = "SELECT * FROM category";
-                $result = mysqli_query($db, $query);
-                $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    $query = "SELECT * FROM category";
+                    $result = mysqli_query($db, $query);
+                    $categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     foreach ($categories as $category) : ?>
 
                     <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
@@ -92,6 +117,24 @@ require_once('template/head.php');
                 </select>
         </div>
 
+        <div class=" form-outline mb-4 p-2">
+            <h2>Location </h2>
+            <select class=" form-select" required="required" name="location_id" required="required">
+                <option value="">Select Location</option>
+
+                <?php 
+                    $query = "SELECT * FROM location";
+                    $result = mysqli_query($db, $query);
+                    $locations = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach ($locations as $location) : ?>
+
+                <option value="<?= $location['id'] ?>"><?= $location['name'] ?></option>
+                <?php endforeach ?>
+
+
+
+            </select>
+        </div>
 
 
 

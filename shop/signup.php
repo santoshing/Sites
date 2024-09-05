@@ -33,27 +33,26 @@ require_once('template/head.php');
                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input name="email" type=" email" id="form3Example3c"
                                                         class="form-control" />
-                                                    <label class="form-label" for="form3Example3c" ">Your
-                                                Email</label>
+                                                    <label class=" ">Your
+                                                        Email</label>
+                                                </div>
                                         </div>
-                                    </div>
 
-                                    <div class=" d-flex flex-row align-items-center mb-4">
-                                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                                        <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                                            <input name="password" type="password" id="form3Example4c"
-                                                                class="form-control" />
-                                                            <label class="form-label"
-                                                                for="form3Example4c">Password</label>
-                                                        </div>
-                                                </div>
+                                        <div class=" d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                <input name="password" type="password" id="form3Example4c"
+                                                    class="form-control" />
+                                                <label class="form-label" for="form3Example4c">Password</label>
+                                            </div>
+                                        </div>
 
 
 
-                                                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                                    <button type="submit" data-mdb-button-init data-mdb-ripple-init
-                                                        name="submit" class="btn btn-primary btn-lg">Register</button>
-                                                </div>
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                                                name="submit" class="btn btn-primary btn-lg">Register</button>
+                                        </div>
 
                                 </form>
 
