@@ -5,6 +5,7 @@ require_once('template/head.php');
 
 <?php if(isset($_SESSION['logged'])){ ?>
 
+
 <a href="profile.php">Profile</a>
 <hr>
 <a href="logout.php">logout</a>

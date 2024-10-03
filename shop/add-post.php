@@ -12,7 +12,7 @@ require_once('template/head.php');
 
 <section class=" col-md-8">
     <h6 class="text-center">Add Post List</h6>
-    <table class="table table-bordered">
+    <table class="table table-success table-striped">
         <?php 
             $query = "SELECT * FROM posts";
             $result = mysqli_query($db, $query);
@@ -24,7 +24,9 @@ require_once('template/head.php');
                 <th scope="col">Title </th>
                 <th scope="col">message</th>
                 <th scope="col">category </th>
+                <th scope="col">user</th>
                 <th scope="col">Location</th>
+
                 <th scope="col ">Action</th>
             </tr>
             <?php foreach ($posts as $post) : ?>
@@ -32,6 +34,7 @@ require_once('template/head.php');
                 <th scope="row"><?= $post['id'] ?></th>
                 <td><?= $post['message_name'] ?></td>
                 <td><?= $post['message'] ?></td>
+
                 <td>
 
                     <?php 
@@ -44,6 +47,18 @@ require_once('template/head.php');
                         }
                 
                     ?>
+                </td>
+                <td>
+                    <?php
+                    $query = "SELECT * FROM users WHERE id = {$post['user_id']}";
+                    $result = mysqli_query($db, $query);
+                    $num_row = mysqli_num_rows($result);
+                    if($num_row > 0){
+                        $user = mysqli_fetch_assoc($result);
+                        echo $user['name'];
+                    }
+                    ?>
+
                 </td>
 
 
@@ -88,8 +103,9 @@ require_once('template/head.php');
 
 
 
-<section class=" col-md-4">
-    <h2>Add Post</h2>
+
+<section class="col-md-4 ">
+    <h2 class="text-center">Add Post</h2>
     <form action=" <?php echo VALIDATION_URL ?>add-post-action.php" method="post" style=" width: 26rem; ">
 
         <div data-mdb-input-init class=" form-outline mb-4 p-2">
@@ -147,4 +163,5 @@ require_once('template/head.php');
         <button type="submit" class="btn btn-primary btn-block mb-4" name="submit">Submit</button>
     </form>
 </section>
+
 </section>

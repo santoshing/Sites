@@ -1,7 +1,7 @@
 <?php 
 require_once('../library/function.php');
 
-// var_dump($_POST);
+// 
 // exit();
 
 if (isset($_POST['submit'])) {
@@ -25,8 +25,5 @@ if (isset($_POST['submit'])) {
 } else {
     echo "Wrong input";
 }
-
-
-    
 
 ?>

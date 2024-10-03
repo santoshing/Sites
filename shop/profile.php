@@ -7,14 +7,14 @@ require_once('template/head.php');
 
 { exit(); }?>
 
-<?php
+<!-- <?php
 $user = "SELECT * FROM users WHERE email = '{$_SESSION['email']}'";
 
 $result = mysqli_query($db, $user);
 $user = mysqli_fetch_assoc($result);
 var_dump($user);
 
-?>
+?> -->
 
 
 

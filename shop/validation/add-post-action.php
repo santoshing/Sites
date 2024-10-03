@@ -7,8 +7,9 @@ if (isset($_POST['submit'])) {
     $message = $_POST['message'];
     $category_id=$_POST['category_id'];
     $location_id=$_POST['location_id'];
+    $user_id = $_SESSION['user_id'];
     
-    $query = "INSERT INTO posts (message_name, message,category_id,location_id ) VALUES ('$message_name', '$message','$category_id','$location_id')";
+    $query = "INSERT INTO posts (message_name, message,category_id,location_id,user_id) VALUES ('$message_name', '$message','$category_id','$location_id','$user_id')";
     $result = mysqli_query($db, $query);
     if ($result) {
         echo "success";

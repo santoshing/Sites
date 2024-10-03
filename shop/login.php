@@ -5,7 +5,7 @@ require_once('template/head.php');
 
 <h2 class="text-center">Login</h2>
 
-<sectio class="w-100 p-4 d-flex justify-content-center pb-4">
+<sectio class="w-100 p-4 d-flex justify-content-center pb-4 ">
 
 
 
